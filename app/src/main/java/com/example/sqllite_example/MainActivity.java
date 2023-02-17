@@ -32,11 +32,11 @@ public class MainActivity extends AppCompatActivity {
 
         binding.readButton.setOnClickListener(v -> {
             Cursor cursor = dbHelper.getAll();
-            String result = "";
+            StringBuilder result = new StringBuilder();
             while (cursor.moveToNext()) {
-                result += " " + cursor.getString(1);
+                result.append("\n").append(cursor.getString(1));
             }
-            binding.readTextView.setText(result);
+            binding.readTextView.setText(result.toString());
         });
 
     }
